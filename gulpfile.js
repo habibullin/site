@@ -39,3 +39,13 @@ gulp.task('slim', function(){
 
 
 gulp.task('default', ['connect', 'watch', 'sass', 'slim']);
+
+//Deploy
+var deploy = require("gulp-gh-pages");
+var options = { 
+    remoteUrl: "https://github.com/habibullin/habibullin.github.io.git",
+    branch: "master"};
+gulp.task('deploy', function () {
+    gulp.src("public/**/*.*")
+        .pipe(deploy(options));
+});
