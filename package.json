@@ -1,0 +1,26 @@
+{
+  "name": "habibullin.github.io",
+  "version": "1.0.0",
+  "description": "",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/habibullin/habibullin.github.io.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/habibullin/habibullin.github.io/issues"
+  },
+  "homepage": "https://github.com/habibullin/habibullin.github.io#readme",
+  "devDependencies": {
+    "gulp-connect": "^5.0.0",
+    "gulp-gh-pages": "^0.5.4",
+    "gulp-sass": "^3.1.0",
+    "gulp-slim": "^0.3.0"
+  }
+}
