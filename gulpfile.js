@@ -37,15 +37,34 @@ gulp.task('slim', function(){
     .pipe(gulp.dest("./public"));
 });
 
-
 gulp.task('default', ['connect', 'watch', 'sass', 'slim']);
+
+
+//Minify
+var minify = require('gulp-minifier');
+
+gulp.task('minify', function() {
+  return gulp.src('public/**/*').pipe(minify({
+    minify: true,
+    collapseWhitespace: true,
+    conservativeCollapse: true,
+    minifyJS: true,
+    minifyCSS: true,
+    getKeptComment: function (content, filePath) {
+        var m = content.match(/\/\*![\s\S]*?\*\//img);
+        return m && m.join('\n') + '\n' || '';
+    }
+  })).pipe(gulp.dest('public/'));
+});
+
 
 //Deploy
 var deploy = require("gulp-gh-pages");
+
 var options = { 
-    remoteUrl: "https://github.com/habibullin/habibullin.github.io.git",
-    branch: "master"};
+  remoteUrl: "https://github.com/habibullin/habibullin.github.io.git",
+  branch: "master"};
 gulp.task('deploy', function () {
-    gulp.src("public/**/*.*")
-        .pipe(deploy(options));
+  gulp.src("public/**/*.*")
+    .pipe(deploy(options));
 });
