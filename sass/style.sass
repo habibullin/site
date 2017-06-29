@@ -1,10 +1,56 @@
+@import reset
+
+
+//Variables
+
 $dark-color: #333333
+
+
+//Links Mixin
+
+=links ($link, $visited, $hover, $active)
+  color: $link
+  &:visited
+    color: $visited
+  &:hover
+    color: $hover
+  &:active, &:focus
+    color: $active
+
+
+//Main styles
+
+a
+  +links(#ccc, purple, yellow, teal)
 
 body
   background: $dark-color
+  min-height: 100%
 
-h1
+html
+  height: 100%
+
+.about
   color: #000
-  font-size: 30px
+  font-size: 50px
 
-section
+.hero
+  background: #555
+  height: 400px
+  width: 100%
+
+.logo
+  width: 40px
+  height: 40px
+
+.section
+  flex: 1 0 auto
+
+.wrapper
+  display: flex
+  flex-direction: column
+  margin: auto
+  max-width: 1600px
+  min-height: 100%
+  min-width: 320px
+  padding: 0 2%

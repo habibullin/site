@@ -13,7 +13,7 @@ gulp.task('connect', function(){
 
 // keeps gulp from crashing for scss errors
 gulp.task('sass', function () {
-  return gulp.src('./sass/*.sass')
+  return gulp.src(['!./sass/_*.sass','./sass/*.sass'])
       .pipe(sass({ errLogToConsole: true }))
       .pipe(gulp.dest('./public/css'));
 });
