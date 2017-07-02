@@ -13,8 +13,13 @@ gulp.task('connect', function(){
 
 // keeps gulp from crashing for scss errors
 gulp.task('sass', function () {
+<<<<<<< HEAD
   return gulp.src('./sass/*.sass')
       .pipe(sass({ includePaths: require('node-normalize-scss').includePaths, errLogToConsole: true }))
+=======
+  return gulp.src(['!./sass/_*.sass','./sass/*.sass'])
+      .pipe(sass({ errLogToConsole: true }))
+>>>>>>> 14b7da9c74c859c36068b11993f129a9b7a83dbc
       .pipe(gulp.dest('./public/css'));
 });
 

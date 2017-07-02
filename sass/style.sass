@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 @import "normalize";
 
 $color-dark: #080817
@@ -7,8 +8,35 @@ $padding: 60px
 
 a
   color: $color-link
+=======
+@import reset
+
+
+//Variables
+
+$dark-color: #333333
+>>>>>>> 14b7da9c74c859c36068b11993f129a9b7a83dbc
+
+
+//Links Mixin
+
+=links ($link, $visited, $hover, $active)
+  color: $link
+  &:visited
+    color: $visited
+  &:hover
+    color: $hover
+  &:active, &:focus
+    color: $active
+
+
+//Main styles
+
+a
+  +links(#ccc, purple, yellow, teal)
 
 body
+<<<<<<< HEAD
   background: $color-dark
   font-family: "lato", sans-serif
   color: $color-light
@@ -32,3 +60,35 @@ section
 
 .padded
   padding: 0 $padding
+=======
+  background: $dark-color
+  min-height: 100%
+
+html
+  height: 100%
+
+.about
+  color: #000
+  font-size: 50px
+
+.hero
+  background: #555
+  height: 400px
+  width: 100%
+
+.logo
+  width: 40px
+  height: 40px
+
+.section
+  flex: 1 0 auto
+
+.wrapper
+  display: flex
+  flex-direction: column
+  margin: auto
+  max-width: 1600px
+  min-height: 100%
+  min-width: 320px
+  padding: 0 2%
+>>>>>>> 14b7da9c74c859c36068b11993f129a9b7a83dbc
