@@ -14,7 +14,7 @@ gulp.task('connect', function(){
 // keeps gulp from crashing for scss errors
 gulp.task('sass', function () {
   return gulp.src('./sass/*.sass')
-      .pipe(sass({ errLogToConsole: true }))
+      .pipe(sass({ includePaths: require('node-normalize-scss').includePaths, errLogToConsole: true }))
       .pipe(gulp.dest('./public/css'));
 });
 
