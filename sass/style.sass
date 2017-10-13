@@ -31,9 +31,18 @@ a
   +links($color-red, purple, yellow, teal)
 
 body
-  font-family: "lato", sans-serif
   font-size: 16px
   line-height: 1.15
+  display: flex
+  flex-direction: column
+  min-height: 100vh
+
+footer
+  background: #eee
+  flex-shrink: 0
+
+header
+  position: absolute
 
 html
   height: 100%
@@ -54,32 +63,42 @@ nav
 
     li:last-child
       float: right
-section
-  flex: 1 0 auto
 
-.about
-  font-weight: bold
-  font-size: 36px
-  max-width: 800px
-  padding: 24px 0
+main
+  display: flex
+  flex-direction: row
+  height: 100%
 
-.hero
-  background: #ccc
-  height: 400px
-  width: 100%
-  border-radius: 8px
+.item
+  flex-grow: 1
+  position: relative
+  &:before
+    content: ''
+    float: left
+    padding-top: 140%
+  &:first-child
+    flex-basis: 100%
+    &:before
+      padding-top: 38%
+  &:after
+    content: ''
+    display: block
+    position: absolute
+    background: linear-gradient(to right top, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0))
+    height: 100%
+    width: 100%
+    top: 0
 
-.logo
-  width: 40px
-  height: 40px
-  background: #eee
-  border-radius: 50%
+.item-1
+  background: url(../img/coursepad-cover.jpg)
+  background-size: cover
+
+.showcase
+  flex-grow: 2
+  display: flex
+  flex-direction: row
+  flex-wrap: wrap
+
 
 .wrapper
-  display: flex
-  flex-direction: column
-  margin: auto
-  max-width: 1600px
-  min-height: 100%
-  min-width: 320px
-  padding: 0 2%
+  flex-grow: 1

@@ -5,8 +5,8 @@ var slim    = require("gulp-slim");
 var minify  = require('gulp-minifier');
 
 
-gulp.task('default', ['connect', 'watch', 'sass', 'slim']);
-gulp.task('deploy', ['sass', 'slim', 'minify', 'deploy_to_gh_pages']);
+gulp.task('default', ['connect', 'watch', 'sass', 'slim', 'moveimages']);
+gulp.task('deploy', ['sass', 'slim', 'minify', 'moveimages', 'deploy_to_gh_pages']);
 
 
 gulp.task('connect', function(){
@@ -30,10 +30,15 @@ gulp.task('livereload', function (){
   .pipe(connect.reload());
 });
 
+gulp.task('moveimages', function(){
+  gulp.src("./img/**.*")
+    .pipe(gulp.dest('./public/img'));
+});
 
 gulp.task('watch', function () {
   gulp.watch('./sass/**/*.sass', ['sass']);
   gulp.watch('./slim/**/*.slim', ['slim']);
+  gulp.watch('./img/**/*.*', ['moveimages']);
   gulp.watch('./public/**/*.*', ['livereload']);
 });
 
