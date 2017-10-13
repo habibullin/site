@@ -3,62 +3,77 @@
 
 //Variables
 
-$dark-color: #333333
+$color-dark: #333333
+$color-red: #E05151
 
 
 //Links Mixin
 
-=links ($link, $visited, $hover, $active)
-  color: $link
+=links ($c-link, $c-visited, $c-hover, $c-active)
+  color: $c-link
+  text-decoration: none
+  border-bottom: 1px solid
+  border-color: rgba( $c-link, .3 )
   &:visited
-    color: $visited
+    color: $c-visited
+    border-color: rgba( $c-visited, .3 )
   &:hover
-    color: $hover
+    color: $c-hover
+    border-color: rgba( $c-hover, .3 )
   &:active, &:focus
-    color: $active
+    color: $c-active
+    border-color: rgba( $c-active, .3 )
 
 
 //Main styles
 
 a
-  +links(#ccc, purple, yellow, teal)
+  +links($color-red, purple, yellow, teal)
 
 body
   font-family: "lato", sans-serif
-
-h1
-  font-size: 36px
-  max-width: 660px
-
-nav
-  padding: 16px 8px 0
-  ul
-    list-style: none
-    margin: 0
-    padding: 0
-    li
-      display: inline
-    li:last-child
-      float: right
+  font-size: 16px
+  line-height: 1.15
 
 html
   height: 100%
 
+nav
+  padding: 16px 0 8px
+
+  ul
+    list-style: none
+    margin: 0
+    padding: 0
+
+    li
+      display: inline
+
+      a
+        border: 0
+
+    li:last-child
+      float: right
+section
+  flex: 1 0 auto
+
 .about
-  color: #000
-  font-size: 50px
+  font-weight: bold
+  font-size: 36px
+  max-width: 800px
+  padding: 24px 0
 
 .hero
-  background: #555
+  background: #ccc
   height: 400px
   width: 100%
+  border-radius: 8px
 
 .logo
   width: 40px
   height: 40px
-
-.section
-  flex: 1 0 auto
+  background: #eee
+  border-radius: 50%
 
 .wrapper
   display: flex
